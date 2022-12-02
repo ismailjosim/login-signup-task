@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -11,13 +10,13 @@ module.exports = {
 
           "primary": "#1678CB",
 
-          "secondary": "#3B8BEA ",
+          "secondary": "#3B8BEA",
 
           "accent": "#68D6F5",
 
           "neutral": "#242424",
 
-          "base-100": "#FFFFFF",
+          "base-100": "#F1F1F1",
 
           "info": "#4B8EEC",
 

@@ -8,9 +8,13 @@ const Form = () => {
     return (
         <div className="h-screen flex">
             <div className="grid lg:grid-cols-2 justify-between items-center gap-32">
-                <div className="text-center lg:text-left">
-                    <img src="logo.png" alt="" />
-                    <img src="formImg.png" alt="" />
+                <div className="text-center lg:text-left flex flex-col">
+                    <div>
+                        <img src="logo.png" alt="" />
+                    </div>
+                    <div>
+                        <img src="formImg.png" alt="" />
+                    </div>
                 </div>
                 <div className="py-48 shadow-2xl bg-base-100">
                     <div className="card-body">
@@ -20,7 +24,7 @@ const Form = () => {
                         <div className="form-control border-b-2">
                             <input type="text" placeholder="Write First Name" className="input border-none outline-none hover:border-none hover:outline-none" />
                         </div>
-                        <div className="mt-6 mx-auto">
+                        <div className="mx-auto">
                             <button className="btn btn-primary text-white flex gap-3 rounded-2xl">
                                 <span>Next Step</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">

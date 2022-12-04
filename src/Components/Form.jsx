@@ -7,7 +7,7 @@ import FormPageThree from './FormPageThree';
 
 
 const Form = () => {
-    const { firstName, lastName, phone, password, email, error, setError } = useContext(FormContext);
+    const { firstName, lastName, phone, password, email, setError, countryCode } = useContext(FormContext);
     const [page, setPage] = useState(1);
 
 
@@ -17,15 +17,18 @@ const Form = () => {
 
             if (password.length < 8) {
                 setError('Password Must Be 8 character');
+
             } else {
+
                 setError('');
                 const user = {
                     first_name: firstName,
                     last_Name: lastName,
-                    phone_number: phone,
+                    phone_number: countryCode + phone,
                     password: password,
                     email: email
                 }
+                console.log(user);
 
                 // fetch('https://test.nexisltd.com/signup', {
                 //     method: "POST",

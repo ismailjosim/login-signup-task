@@ -6,6 +6,7 @@ export const FormContext = createContext();
 const FormProvider = ({ children }) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [countryCode, setCountryCode] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,7 +28,9 @@ const FormProvider = ({ children }) => {
         email,
         setEmail,
         error,
-        setError
+        setError,
+        countryCode,
+        setCountryCode
     }
 
 

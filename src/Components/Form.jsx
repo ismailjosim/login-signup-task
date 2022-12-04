@@ -4,12 +4,25 @@ import FormPageOne from './FormPageOne';
 import FormPageTwo from './FormPageTwo';
 import FormPageThree from './FormPageThree';
 
-// import FormPageOne from './FormPageOne';
+
 
 const Form = () => {
-    const { personName } = useContext(FormContext);
+    const { firstName, lastName, phone, password, email } = useContext(FormContext);
     const [page, setPage] = useState(1);
-    console.log(page);
+
+
+    const handleSignUP = () => {
+        const user = {
+            firstName,
+            lastName,
+            phone,
+            password,
+            email
+        }
+        console.log(user);
+
+    }
+
 
 
     return (
@@ -37,7 +50,7 @@ const Form = () => {
 
                         }
 
-                        {page === 3 && <button type="button" className="btn btn-primary px-10 text-white"> Sign Up</button>}
+                        {page === 3 && <button onClick={handleSignUP} type="button" className="btn btn-primary px-10 text-white"> Sign Up</button>}
 
                         {
                             page < 3 &&

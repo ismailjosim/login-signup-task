@@ -1,17 +1,27 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 
 export const FormContext = createContext();
 
 const FormProvider = ({ children }) => {
-    const personName = {
-        name: "ismail",
-        age: 25
-    }
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
 
     const formInfo = {
-        personName
+        firstName,
+        setFirstName,
+        lastName,
+        setLastName,
+        phone,
+        setPhone,
+        password,
+        setPassword,
+        email,
+        setEmail
     }
 
 

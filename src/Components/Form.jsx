@@ -28,19 +28,18 @@ const Form = () => {
                     password: password,
                     email: email
                 }
-                console.log(user);
 
-                // fetch('https://test.nexisltd.com/signup', {
-                //     method: "POST",
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(user)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         console.log(data);
-                //     })
+                fetch('https://test.nexisltd.com/signup', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
             }
 
 

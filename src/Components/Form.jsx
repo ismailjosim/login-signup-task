@@ -1,46 +1,61 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FormContext } from '../contexts/FormProvider';
-import FormLeftContent from './FormLeftContent';
+import FormPageOne from './FormPageOne';
+import FormPageTwo from './FormPageTwo';
+import FormPageThree from './FormPageThree';
 
-
+// import FormPageOne from './FormPageOne';
 
 const Form = () => {
     const { personName } = useContext(FormContext);
-    console.log(personName);
+    const [page, setPage] = useState(1);
+    console.log(page);
+
 
     return (
-        <div className="h-screen w-11/12 mx-auto flex items-center justify-center">
-            <div className="flex lg:flex-row flex-col lg:gap-20 gap-10 justify-between items-center">
-                <FormLeftContent />
-                <div className="shadow-2xl bg-base-100 flex flex-col justify-center items-center py-20">
-                    <h3 className='text-xl font-medium text-black'>SignUp Form</h3>
-                    <div className='flex flex-col justify-between items-center mx-10'>
-                        <div className="card-body">
-                            <div className="form-control border-b-2 mb-4">
-                                <input type="text" placeholder="Write First Name" className="input border-none outline-none hover:border-none hover:outline-none" />
-                            </div>
-                            <div className="form-control border-b-2">
-                                <input type="text" placeholder="Write First Name" className="input border-none outline-none hover:border-none hover:outline-none" />
-                            </div>
-                            <div className="mx-auto mt-5">
-                                <a href='./FormPageTwo' className="btn btn-primary text-white flex gap-3 rounded-2xl mt-3">
-                                    <span>Next Step</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='flex gap-2'>
-                        <span>Already have an account?</span>
-                        <a className='text-primary font-semibold underline' href="/login">LOGIN HERE!</a>
+        <div className='h-screen grid items-center'>
+            <div className="grid max-w-6xl grid-cols-1 mx-auto md:grid-cols-2 lg:gap-20 items-center">
+                <div>
+                    <img src="logo.png" alt="" />
+                    <img src="formImg.png" alt="" />
+                </div>
+                <div className="flex flex-col lg:gap-20 gap-10 p-6 lg:py-28 md:py-0 md:px-6 shadow-2xl">
+                    <h1 className="text-xl font-medium text-center">SignUp Form</h1>
+                    {
+                        page === 1 ? <FormPageOne /> : page === 2 ? <FormPageTwo /> : <FormPageThree />
+                    }
+                    <div className='flex justify-center gap-10'>
+
+                        {
+                            page > 1 &&
+                            <>
+                                <button type="button" className="btn btn-link" onClick={() => {
+                                    const prevPage = page - 1;
+                                    setPage(prevPage)
+                                }}><span>back</span></button>
+                            </>
+
+                        }
+
+                        {page === 3 && <button type="button" className="btn btn-primary px-10 text-white"> Sign Up</button>}
+
+                        {
+                            page < 3 &&
+                            <button type="button" className="btn btn-primary text-white" onClick={() => {
+                                const nextPage = page + 1;
+                                setPage(nextPage)
+                            }} ><span>Next Step</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                                </svg>
+                            </button>
+                        }
+
                     </div>
                 </div>
-
             </div>
         </div>
     );
 };
 
 export default Form;
+

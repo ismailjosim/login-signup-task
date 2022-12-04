@@ -7,19 +7,50 @@ import FormPageThree from './FormPageThree';
 
 
 const Form = () => {
-    const { firstName, lastName, phone, password, email } = useContext(FormContext);
+    const { firstName, lastName, phone, password, email, error, setError } = useContext(FormContext);
     const [page, setPage] = useState(1);
 
 
     const handleSignUP = () => {
-        const user = {
-            firstName,
-            lastName,
-            phone,
-            password,
-            email
+
+        if (firstName !== '' || lastName !== '' || phone !== '' || password !== '' || email !== '') {
+
+            if (password.length < 8) {
+                setError('Password Must Be 8 character');
+            } else {
+                setError('');
+                const user = {
+                    first_name: firstName,
+                    last_Name: lastName,
+                    phone_number: phone,
+                    password: password,
+                    email: email
+                }
+
+                // fetch('https://test.nexisltd.com/signup', {
+                //     method: "POST",
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(user)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data);
+                //     })
+            }
+
+
+
+
         }
-        console.log(user);
+
+        else {
+
+            alert("Please Fill UP all input field information")
+
+        }
+
 
     }
 

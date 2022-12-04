@@ -9,6 +9,10 @@ const FormProvider = ({ children }) => {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+
+
 
 
     const formInfo = {
@@ -21,7 +25,9 @@ const FormProvider = ({ children }) => {
         password,
         setPassword,
         email,
-        setEmail
+        setEmail,
+        error,
+        setError
     }
 
 

@@ -48,7 +48,6 @@ const Form = () => {
         }
     }
 
-    console.log(user);
 
     return (
         <div className='h-screen grid items-center'>

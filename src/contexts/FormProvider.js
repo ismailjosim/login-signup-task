@@ -15,8 +15,6 @@ const FormProvider = ({ children }) => {
 
 
 
-    console.log(user);
-
     const formInfo = {
         firstName,
         setFirstName,

@@ -3,12 +3,11 @@ import { FormContext } from '../contexts/FormProvider';
 import FormPageOne from './FormPageOne';
 import FormPageTwo from './FormPageTwo';
 import FormPageThree from './FormPageThree';
-import toast, { Toaster } from 'react-hot-toast';
-
-
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const Form = () => {
-    const { firstName, lastName, phone, password, email, setError, countryCode } = useContext(FormContext);
+    const { firstName, lastName, phone, password, email, setError, countryCode, setUser, user } = useContext(FormContext);
     const [page, setPage] = useState(1);
 
 
@@ -39,13 +38,17 @@ const Form = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data) {
-                        toast.success('User created SuccessFully');
+                        if (data.success) {
+                            setUser('user found');
+                            toast.success('User created SuccessFully');
+                        }
+
                     }
                 })
         }
     }
 
-
+    console.log(user);
 
     return (
         <div className='h-screen grid items-center'>
@@ -91,7 +94,7 @@ const Form = () => {
                     </div>
                     <div className='text-end'>
                         <span className='text-sm font-[#7E7E7E]'>Already have an account?</span>
-                        <a className="link ml-2 font-primary" href="/login">LOGIN HERE!</a>
+                        <Link className="link ml-2 font-primary" to="/login">LOGIN HERE!</Link>
                     </div>
                 </div>
 

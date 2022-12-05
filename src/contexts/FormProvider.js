@@ -11,10 +11,11 @@ const FormProvider = ({ children }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [user, setUser] = useState('');
 
 
 
-
+    console.log(user);
 
     const formInfo = {
         firstName,
@@ -30,7 +31,10 @@ const FormProvider = ({ children }) => {
         error,
         setError,
         countryCode,
-        setCountryCode
+        setCountryCode,
+        user,
+        setUser
+
     }
 
 

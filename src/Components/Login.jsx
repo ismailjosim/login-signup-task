@@ -27,7 +27,8 @@ const Login = () => {
             fetch('https://test.nexisltd.com/login', {
                 method: "POST",
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `bearer token`
                 },
                 body: JSON.stringify(user)
             })
@@ -35,7 +36,7 @@ const Login = () => {
                 .then(data => {
                     if (data) {
                         console.log(data);
-                        // toast.success('User created SuccessFully');
+                        toast.success('User created SuccessFully');
                     }
                 })
 

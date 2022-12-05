@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const Form = () => {
-    const { firstName, lastName, phone, password, email, setError, countryCode, setUser, user } = useContext(FormContext);
+    const { firstName, lastName, phone, password, email, setError, countryCode, setUser } = useContext(FormContext);
     const [page, setPage] = useState(1);
 
 

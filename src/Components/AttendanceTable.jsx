@@ -71,7 +71,7 @@ const AttendanceTable = () => {
 
     }, [])
 
-
+    console.log(data);
 
 
     return (
